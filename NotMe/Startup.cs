@@ -5,6 +5,10 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using NotMe.Models;
+using NotMe.Models.Interface;
+using NotMe.Models.Logic;
 
 namespace NotMe
 {
@@ -28,6 +32,10 @@ namespace NotMe
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            //Logic
+            services.AddScoped<IToDoLogic, ToDoLogic>();
+            services.AddScoped<ILogger, Logger<ToDo>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

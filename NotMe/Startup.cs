@@ -30,7 +30,7 @@ namespace NotMe
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/build";
+                configuration.RootPath = "../NotMe.Client/build";
             });
 
             //Logic
@@ -67,7 +67,7 @@ namespace NotMe
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "ClientApp";
+                spa.Options.SourcePath = "../NotMe.Client";
 
                 if (env.IsDevelopment())
                 {

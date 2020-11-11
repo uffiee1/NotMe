@@ -20,7 +20,6 @@ export class Todo extends Component {
         e.preventDefault();
         var newItem = {
             text: this.state.text,
-            id: Date.now()
         };
         this.setState((prevState) => ({
             items: prevState.items.concat(newItem),
@@ -32,10 +31,11 @@ export class Todo extends Component {
         return (
             <div>
             <h1>TODO TEST</h1>
-            <TodoList items={this.state.items} />
+            
             <form onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} value={this.state.text} />
             <button>Add</button>
+            <TodoList items={this.state.items} />
             </form>
             </div>
     );

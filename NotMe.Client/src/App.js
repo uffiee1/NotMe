@@ -6,6 +6,7 @@ import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 import { Login } from './components/Login';
 import { Mapper } from './components/map/Mapper';
+import { Todo } from './components/todo/Todo';
 
 import './custom.css'
 
@@ -20,6 +21,7 @@ export default class App extends Component {
         <Route path='/fetch-data' component={FetchData} />
         <Route path='/login' component={Login} />
         <Route path='/mapper' component={Mapper} />
+        <Route path='/todo' component={Todo} />
       </Layout>
     );
   }

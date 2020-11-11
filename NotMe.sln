@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotMe", "NotMe\NotMe.csproj", "{1C61F847-CF35-4EDC-98D2-15D857E5E770}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotMe", "NotMe\NotMe.csproj", "{1C61F847-CF35-4EDC-98D2-15D857E5E770}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "NotMe.Client", "NotMe.Client\NotMe.Client.njsproj", "{9AD2E84A-AB2D-4C2A-BE13-2EA74BAD47CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1C61F847-CF35-4EDC-98D2-15D857E5E770}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C61F847-CF35-4EDC-98D2-15D857E5E770}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C61F847-CF35-4EDC-98D2-15D857E5E770}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AD2E84A-AB2D-4C2A-BE13-2EA74BAD47CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AD2E84A-AB2D-4C2A-BE13-2EA74BAD47CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AD2E84A-AB2D-4C2A-BE13-2EA74BAD47CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AD2E84A-AB2D-4C2A-BE13-2EA74BAD47CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

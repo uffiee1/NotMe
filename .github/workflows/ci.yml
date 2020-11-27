@@ -2,13 +2,13 @@ name: Continuous Integration
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
     paths-ignore:
       - '**.gitignore'
       - '**.dockerignore'
       - '**/README.md'
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
     paths-ignore:
       - '**.gitignore'
       - '**.dockerignore'
@@ -20,7 +20,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix: 
-        os: [ubuntu-20.04, macos-11.0, windows-2019]
+        os: [ubuntu-latest, macos-11.0, windows-2019]
 
     steps:
     - uses: actions/checkout@v2

@@ -2,14 +2,25 @@ name: Continuous Integration
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
+    paths-ignore:
+      - '**.gitignore'
+      - '**.dockerignore'
+      - '**/README.md'
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
+    paths-ignore:
+      - '**.gitignore'
+      - '**.dockerignore'
+      - '**/README.md'
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix: 
+        os: [ubuntu-20.04, macos-11.0, windows-2019]
 
     steps:
     - uses: actions/checkout@v2
@@ -21,8 +32,6 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-      working-directory: ./NotMe
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-      working-directory: ./NotMe
    

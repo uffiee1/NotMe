@@ -1,46 +1,30 @@
 name: Node CI
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the main branch
+
 on:
   push:
     branches: [ master ]
-    paths-ignore:
-      - '**.gitignore'
-      - '**.dockerignore'
-      - '**/README.md'
   pull_request:
     branches: [ master ]
-    paths-ignore:
-      - '**.gitignore'
-      - '**.dockerignore'
-      - '**/README.md'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
-    runs-on: ${{ matrix.os }}
+
+    runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
         working-directory: ./NotMe/NotMe.Client
+
     strategy:
-      matrix: 
-        os: [ubuntu-latest, macos-11.0, windows-2019]
-        node-version: [15.x, 14.x, 12.x]
+      matrix:
+        node-version: [10.x, 12.x, 14.x]
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test

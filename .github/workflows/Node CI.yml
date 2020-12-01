@@ -11,8 +11,11 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./NotMe/NotMe.Client
 
     strategy:
       matrix:

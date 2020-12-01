@@ -1,7 +1,6 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 name: Node CI
@@ -36,14 +35,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-        
     - name: Install dependencies
     - run: npm ci
-      working-directory: ./NotMe/NotMe.Client
-    
     - run: npm run build --if-present
       working-directory: ./NotMe/NotMe.Client
-    
     - run: npm test
       working-directory: ./NotMe/NotMe.Client
       

@@ -29,11 +29,6 @@
     <None Remove="ClientApp\src\components\images\logo1.png" />
     <None Remove="ClientApp\src\components\images\logo2.png" />
   </ItemGroup>
-   
-  <ItemGroup>
-    <ProjectReference Include="..\NotMe.Client\NotMe.Client.njsproj" />
-  </ItemGroup>
-   
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">

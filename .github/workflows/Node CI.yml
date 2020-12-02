@@ -28,7 +28,7 @@ jobs:
     defaults:
       run:
         shell: bash --noprofile --norc -x -eo pipefail {0}
-        working-directory: ./NotMe/NotMe.Client
+        working-directory: ..\NotMe.Client
     strategy:
       matrix: 
         os: [ubuntu-20.04, macos-11.0, windows-2019]
@@ -43,11 +43,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-      working-directory: ./NotMe/NotMe.Client/
+      working-directory: ./NotMe/NotMe.Client
     - run: npm run build --if-present
-      working-directory: ./NotMe/NotMe.Client/
+      working-directory: ./NotMe/NotMe.Client
     - run: npm test
-      working-directory: ./NotMe/NotMe.Client/
+      working-directory: ./NotMe/NotMe.Client
       
     # Runs a single command using the runners shell
     - name: Run a one-line script

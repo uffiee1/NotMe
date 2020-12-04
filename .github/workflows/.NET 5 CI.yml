@@ -7,12 +7,20 @@ on:
       - '**.gitignore'
       - '**.dockerignore'
       - '**/README.md'
+      - '**/stylecop.props'
+      - '**/stylecop.ruleset'
+      - '**/stylecop.json'
+      - '**/common.props'
   pull_request:
     branches: [ master ]
     paths-ignore:
       - '**.gitignore'
       - '**.dockerignore'
       - '**/README.md'
+      - '**/stylecop.props'
+      - '**/stylecop.ruleset'
+      - '**/stylecop.json'
+      - '**/common.props'
 
 jobs:
   build:

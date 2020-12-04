@@ -12,9 +12,24 @@
 name: "CodeQL"
 
 on:
-  schedule:
-    - cron: '12 13 * * 1,3,5'
-
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - '**.gitignore'
+      - '**/README.md'
+      - '**/stylecop.props'
+      - '**/stylecop.ruleset'
+      - '**/stylecop.json'
+      - '**/common.props'
+  pull_request:
+    branches: [ master ]
+    paths-ignore:
+      - '**.gitignore'
+      - '**/README.md'
+      - '**/stylecop.props'
+      - '**/stylecop.ruleset'
+      - '**/stylecop.json'
+      - '**/common.props'
 jobs:
   analyze:
     name: Analyze

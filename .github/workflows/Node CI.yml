@@ -10,11 +10,19 @@ on:
     paths-ignore:
       - '**.gitignore'
       - '**/README.md'
+      - '**/stylecop.props'
+      - '**/stylecop.ruleset'
+      - '**/stylecop.json'
+      - '**/common.props'
   pull_request:
     branches: [ master ]
     paths-ignore:
       - '**.gitignore'
       - '**/README.md'
+      - '**/stylecop.props'
+      - '**/stylecop.ruleset'
+      - '**/stylecop.json'
+      - '**/common.props'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:

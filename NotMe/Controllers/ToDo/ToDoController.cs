@@ -1,26 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NotMe.Models;
-using NotMe.Models.Interface;
+using NotMe.BusinessLogic.ToDoLogic.Interfaces;
+using NotMe.DataAccess;
 
-namespace NotMe.Controllers
+namespace NotMe.Controllers.ToDo
 {
-    public class ToDoController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ToDoController : ControllerBase
     {
+        private readonly AppDbContext _context;
         private readonly IToDoLogic _toDoLogic;
 
         public ToDoController(IToDoLogic toDoLogic)
         {
             _toDoLogic = toDoLogic;
-        }
-
-        public async Task<IActionResult> Index(ToDo model)
-        {
-            return View();
         }
     }
 }

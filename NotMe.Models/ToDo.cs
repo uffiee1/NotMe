@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace NotMe.Models
 {
@@ -25,9 +24,11 @@ namespace NotMe.Models
         public double AccelZ { get; set; }
 
         //User Info
+        [ForeignKey("UserId")]
         public User User { get; set; }
 
-        public string UserId { get; set; }
+        
+        public string UserID { get; set; }
 
         //Label
         public string Label { get; set; }

@@ -2,13 +2,22 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NotMe.BusinessLogic.ToDoLogic;
+using NotMe.BusinessLogic.ToDoLogic.Interfaces;
+using NotMe.DataAccess;
 using NotMe.Models;
-using NotMe.Models.Interface;
-using NotMe.Models.Logic;
+
+//TODO: Cupling other Logics
+//using NotMe.DataAccess;
+//using NotMe.BusinessLogic.AdminLogic;
+//using NotMe.BusinessLogic.AdminLogic.Interfaces;
+//using NotMe.BusinessLogic.AccountLogic;
+//using NotMe.BusinessLogic.AccountLogic.Interfaces;
 
 namespace NotMe
 {
@@ -24,6 +33,9 @@ namespace NotMe
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDbContext>(options => options.UseNpgsql
+                (Configuration.GetConnectionString("NotMe")));
+
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory

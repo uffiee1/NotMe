@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using NotMe.BusinessLogic.ToDoLogic.Interfaces;
 using NotMe.DataAccess;
 using NotMe.Models;
@@ -36,7 +36,7 @@ namespace NotMe.BusinessLogic.ToDoLogic
 
         public async Task<IEnumerable<ToDo>> GetAllToDoListAsUser(ToDo model)
         {
-            _result = await _context.ToDo.Where(todo => todo.UserID == model.UserID).ToListAsync();
+            _result = await _context.ToDo.Where(todo => todo.UserId == model.UserId).ToListAsync();
             return _result;
         }
 

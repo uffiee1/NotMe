@@ -9,7 +9,7 @@ namespace NotMe.Models
     public class Label
     {
         [Key]
-        public int Id { get; set; }
+        public int LabelId { get; set; }
 
         [Required]
         [Display(Name = "Label")]

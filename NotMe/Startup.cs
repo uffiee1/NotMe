@@ -33,7 +33,7 @@ namespace NotMe
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options.UseNpgsql
+            services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>(opt => opt.UseNpgsql
                 (Configuration.GetConnectionString("NotMe")));
 
             services.AddControllersWithViews();
@@ -45,8 +45,8 @@ namespace NotMe
             });
 
             //Logic
-            services.AddScoped<IToDoLogic, ToDoLogic>();
-            services.AddScoped<ILogger, Logger<ToDo>>();
+            //services.AddScoped<IToDoLogic, ToDoLogic>();
+            //services.AddScoped<ILogger, Logger<ToDo>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

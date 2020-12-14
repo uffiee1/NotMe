@@ -10,31 +10,27 @@ namespace NotMe.Models
     public class ToDo
     {
         //Tasks
-        public int ToDoID { get; set; }
+        public int ToDoId { get; set; }
 
         public string Event { get; set; }
 
         public bool Favorite { get; set; }
 
         //Location
-        public double AccelX { get; set; }
-
-        public double AccelY { get; set; }
-
-        public double AccelZ { get; set; }
+        public int Location { get; set; }
 
         //User Info
         [ForeignKey("UserId")]
         public User User { get; set; }
 
         
-        public string UserID { get; set; }
+        public int UserId { get; set; }
 
         //Label
-        public string Label { get; set; }
+        public int Label { get; set; }
 
         //Status
-        public string Status { get; set; }
+        public int Status { get; set; }
 
         //Date
         [DataType(DataType.Date)]

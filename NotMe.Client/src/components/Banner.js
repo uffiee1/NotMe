@@ -2,7 +2,7 @@
 import { Container, Row, Col } from 'reactstrap';
 
 import './Banner.css';
-import logo from './images/logo.png'
+import logo from './Assets/logo/logo.png'
 
 export class Banner extends Component {
 

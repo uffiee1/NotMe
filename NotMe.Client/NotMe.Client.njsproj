@@ -36,6 +36,13 @@
     <Content Include="README.md" />
     <Content Include="src\App.js" />
     <Content Include="src\App.test.js" />
+    <Content Include="src\components\Account\ApiAuthorizationConstants.js" />
+    <Content Include="src\components\Account\ApiAuthorizationRoutes.js" />
+    <Content Include="src\components\Account\AuthorizeRoute.js" />
+    <Content Include="src\components\Account\AuthorizeService.js" />
+    <Content Include="src\components\Account\Login.js" />
+    <Content Include="src\components\Account\LoginMenu.js" />
+    <Content Include="src\components\Account\Logout.js" />
     <Content Include="src\components\Assets\mapIcon\leaf-red.png" />
     <Content Include="src\components\Banner.css" />
     <Content Include="src\components\Banner.js" />
@@ -63,6 +70,7 @@
     <Folder Include="public\" />
     <Folder Include="src\" />
     <Folder Include="src\components\" />
+    <Folder Include="src\components\Account\" />
     <Folder Include="src\components\Assets\logo\" />
     <Folder Include="src\components\Assets\mapIcon\" />
     <Folder Include="src\components\map\" />

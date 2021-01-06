@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { LoginMenu } from './Account/LoginMenu';
 import './NavMenu.css';
 
 export class NavMenu extends Component {
@@ -48,6 +49,8 @@ export class NavMenu extends Component {
                 <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/todo">Todo</NavLink>
                 </NavItem>
+				<LoginMenu>
+                </LoginMenu>
               </ul>
             </Collapse>
           </Container>

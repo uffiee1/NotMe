@@ -8,6 +8,11 @@ import { Login } from './components/Login';
 import { Mapper } from './components/map/Mapper';
 import { Todo } from './components/todo/Todo';
 
+import AuthorizeRoute from './components/Account/AuthorizeRoute';
+import ApiAuthorizationRoutes from './components/Account/ApiAuthorizationRoutes';
+import { ApplicationPaths } from './components/Account/ApiAuthorizationConstants';
+
+
 import './custom.css'
 
 export default class App extends Component {
@@ -22,6 +27,7 @@ export default class App extends Component {
         <Route path='/login' component={Login} />
         <Route path='/mapper' component={Mapper} />
         <Route path='/todo' component={Todo} />
+		<Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
       </Layout>
     );
   }

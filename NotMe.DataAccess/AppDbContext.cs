@@ -11,6 +11,11 @@ namespace NotMe.DataAccess
             
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+
         public DbSet<User> User { get; set; }
         public DbSet<ToDo> ToDo { get; set; }
         public DbSet<Label> Label { get; set; }

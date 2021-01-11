@@ -5,7 +5,8 @@ export class Home extends Component {
 
   render () {
     return (
-      <div> 
+      <div>
+	  <h1>Hello, world!</h1>
       <h3>Welcome to <strong>NotMe</strong> ToDo Web Application.</h3>
         <ul>
         <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>

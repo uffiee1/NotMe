@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace NotMe.Models
 {
-    
     public class Location
     {
         [Key]

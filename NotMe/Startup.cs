@@ -1,11 +1,12 @@
 using System.Text;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -75,7 +76,19 @@ namespace NotMe
             services.AddDbContext<AppDbContext>(opt => opt.UseNpgsql
                 (Configuration.GetConnectionString("NotMe")));
 
+            services.AddDatabaseDeveloperPageExceptionFilter();
+
+            services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<AppDbContext>();
+
+            services.AddIdentityServer()
+                .AddApiAuthorization<User, AppDbContext>();
+
+            services.AddAuthentication()
+                .AddIdentityServerJwt();
+
             services.AddControllersWithViews();
+            services.AddRazorPages();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -98,6 +111,7 @@ namespace NotMe
             else
             {
                 app.UseExceptionHandler("/Error");
+
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -107,7 +121,9 @@ namespace NotMe
             app.UseSpaStaticFiles();
 
             app.UseRouting();
+
             app.UseAuthentication();
+            app.UseIdentityServer();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -115,6 +131,7 @@ namespace NotMe
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
 
             app.UseSpa(spa =>

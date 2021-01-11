@@ -1,7 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using NotMe.Areas.User.Models;
-@inject SignInManager<LoginModel> SignInManager
-@inject UserManager<RegisterModel> UserManager
+@*@using NotMe.Areas.User.Models;*@
+@using NotMe.Models;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 
 @{
     string returnUrl = null;

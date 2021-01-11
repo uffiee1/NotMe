@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace NotMe.Areas.User.Models
 {
-    public class UserModel
+    public class UserModel : IdentityUser
     {
         public string Id { get; set; }
 

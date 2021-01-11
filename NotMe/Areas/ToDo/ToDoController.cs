@@ -9,6 +9,7 @@ using NotMe.DataAccess;
 
 namespace NotMe.Controllers.ToDo
 {
+    [Area("ToDo")]
     [Route("api/[controller]")]
     [ApiController]
     public class ToDoController : ControllerBase

@@ -6,12 +6,12 @@ using Microsoft.Extensions.Logging;
 namespace NotMe.Areas.User.Controllers
 {
     [Area("User")]
-    [AllowAnonymous]
-    public class AccountController : Controller
+    //[AllowAnonymous]
+    public class OidcConfigurationController : Controller
     {
-        private readonly ILogger<AccountController> _logger;
+        private readonly ILogger<OidcConfigurationController> _logger;
 
-        public AccountController(IClientRequestParametersProvider clientRequestParametersProvider, ILogger<AccountController> logger)
+        public OidcConfigurationController(IClientRequestParametersProvider clientRequestParametersProvider, ILogger<OidcConfigurationController> logger)
         {
             ClientRequestParametersProvider = clientRequestParametersProvider;
             _logger = logger;

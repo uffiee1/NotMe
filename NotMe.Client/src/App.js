@@ -12,7 +12,6 @@ import AuthorizeRoute from './components/Account/AuthorizeRoute';
 import ApiAuthorizationRoutes from './components/Account/ApiAuthorizationRoutes';
 import { ApplicationPaths } from './components/Account/ApiAuthorizationConstants';
 
-
 import './custom.css'
 
 export default class App extends Component {
@@ -23,11 +22,11 @@ export default class App extends Component {
       <Layout>
         <Route exact path='/' component={Home} />
         <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data' component={FetchData} />
-        <Route path='/login' component={Login} />
+        <AuthorizeRoute path='/fetch-data' component={FetchData} />
+        <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
+		<Route path='/login' component={Login} />
         <Route path='/mapper' component={Mapper} />
         <Route path='/todo' component={Todo} />
-		<Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
       </Layout>
     );
   }

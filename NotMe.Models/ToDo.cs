@@ -23,8 +23,7 @@ namespace NotMe.Models
         [ForeignKey("UserId")]
         public User User { get; set; }
 
-        
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         //Label
         public int Label { get; set; }

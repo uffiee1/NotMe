@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react';
 
-export class Todo extends Component {
-    static displayName = Todo.name;
+export class TodoUNauth extends Component {
+    static displayName = TodoUNauth.name;
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);

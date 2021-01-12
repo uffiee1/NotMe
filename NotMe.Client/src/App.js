@@ -6,7 +6,8 @@ import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 import { Login } from './components/Login';
 import { Mapper } from './components/map/Mapper';
-import { Todo } from './components/todo/Todo';
+import { TodoUNauth } from './components/todo/todo-unauthorized/TodoUNauth';
+import { Todo } from './components/todo/todo/Todo';
 
 import AuthorizeRoute from './components/Account/AuthorizeRoute';
 import ApiAuthorizationRoutes from './components/Account/ApiAuthorizationRoutes';
@@ -19,14 +20,15 @@ export default class App extends Component {
 
   render () {
     return (
-      <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <AuthorizeRoute path='/fetch-data' component={FetchData} />
-        <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
-		<Route path='/login' component={Login} />
-        <Route path='/mapper' component={Mapper} />
-        <Route path='/todo' component={Todo} />
+        <Layout>
+            <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
+            <Route exact path='/' component={Home} />
+            <Route path='/counter' component={Counter} />
+            <AuthorizeRoute path='/fetch-data' component={FetchData} />
+            <Route path='/login' component={Login} />
+            <Route path='/mapper' component={Mapper} />
+            <Route path='/todo' component={Todo} />
+            <Route path='/todo-unauthorized' component={TodoUNauth} />
       </Layout>
     );
   }

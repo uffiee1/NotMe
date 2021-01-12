@@ -37,6 +37,7 @@
     <Content Include="src\actions\store.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="src\actions\todosReducer.js" />
     <Content Include="src\App.js" />
     <Content Include="src\App.test.js" />
     <Content Include="src\components\Account\ApiAuthorizationConstants.js" />
@@ -64,10 +65,13 @@
     <Content Include="src\components\map\Mapper.js" />
     <Content Include="src\components\NavMenu.css" />
     <Content Include="src\components\NavMenu.js" />
+    <Content Include="src\components\services\todos.js" />
     <Content Include="src\components\todo\todo-unauthorized\TodoUNauth.js" />
     <Content Include="src\components\todo\todo\Todo.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="src\components\todo\todo\TodoModal.js" />
+    <Content Include="src\components\todo\todo\TodoTable.js" />
     <Content Include="src\custom.css" />
     <Content Include="src\index.js" />
     <Content Include="src\registerServiceWorker.js" />
@@ -81,6 +85,7 @@
     <Folder Include="src\components\Assets\mapIcon\" />
     <Folder Include="src\components\map\" />
     <Folder Include="src\components\Assets\" />
+    <Folder Include="src\components\services\" />
     <Folder Include="src\components\todo\" />
     <Folder Include="src\actions\" />
     <Folder Include="src\components\todo\todo\" />

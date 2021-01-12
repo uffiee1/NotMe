@@ -20,6 +20,6 @@ namespace NotMe.Areas.User.Models
 
         public string Password { get; set; }
 
-        public DateTime Age { get; set; }
+        public DateTime DateOfBirth { get; set; }
     }
 }

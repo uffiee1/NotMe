@@ -67,6 +67,9 @@
     <Content Include="src\components\NavMenu.js" />
     <Content Include="src\components\services\todos.js" />
     <Content Include="src\components\todo\todo-unauthorized\TodoUNauth.js" />
+    <Content Include="src\components\todo\todo\Todo.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="src\components\todo\todo\Todo.js">
       <SubType>Code</SubType>
     </Content>

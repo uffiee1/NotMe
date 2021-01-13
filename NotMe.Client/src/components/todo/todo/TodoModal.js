@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Form, Modal, Button, InputGroup, FormControl } from "react-bootstrap";
-import { NewTodo, EditTodo } from '../services/todos';
+import { NewTodo, EditTodo } from '../../services/todos';
 
 export const NewTodoModal = () => {
     const [show, setShow] = useState(false);

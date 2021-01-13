@@ -1,27 +1,27 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { DeleteNote, GetNotes } from '../services/notes';
+import { DeleteTodo, GetTodos } from '../../services/todos';
 import { Button } from 'react-bootstrap';
-import { EditNoteModal } from './NoteModal';
+import { EditTodoModal } from './TodoModal';
 
-export const NotesTable = () => {
-    const notes = useSelector(state => state.notesReducer.notes);
+export const TodosTable = () => {
+    const todos = useSelector(state => state.todosReducer.todos);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        GetNotes(dispatch);
+        GetTodos(dispatch);
     }, []);
 
     return <table className='table table-dark'>
         <tbody>
             {
-                notes.map(n =>
+                todos.map(n =>
                     <tr key={n.id}>
-                         <td style={{ width: '3rem' }}>
-                            <EditNoteModal note={n}/>
+                        <td style={{ width: '3rem' }}>
+                            <EditTodoModal todo={n} />
                         </td>
                         <td style={{ width: '3rem' }}>
-                            <Button className='btn btn-danger' onClick={() => DeleteNote(dispatch, n)}>Delete</Button>
+                            <Button className='btn btn-danger' onClick={() => DeleteTodo(dispatch, n)}>Delete</Button>
                         </td>
                         <td style={{ textAlign: 'left' }}>{n.value}</td>
                     </tr>

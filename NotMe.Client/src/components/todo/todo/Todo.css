@@ -1,0 +1,41 @@
+.Todo {
+    text-align: center;
+}
+
+.Todo-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .Todo-logo {
+        animation: Todo-logo-float infinite 3s ease-in-out;
+    }
+}
+
+.Todo-header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+}
+
+.Todo-link {
+    color: rgb(112, 76, 182);
+}
+
+@keyframes Todo-logo-float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px)
+    }
+
+    100% {
+        transform: translateY(0px)
+    }
+}

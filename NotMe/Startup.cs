@@ -14,17 +14,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using NotMe.BusinessLogic.ToDoLogic;
-using NotMe.BusinessLogic.ToDoLogic.Interfaces;
+using NotMe.BusinessLogic.Services;
 using NotMe.DataAccess;
 using NotMe.Models;
-
-//TODO: Cupling other Logics
-//using NotMe.DataAccess;
-//using NotMe.BusinessLogic.AdminLogic;
-//using NotMe.BusinessLogic.AdminLogic.Interfaces;
-//using NotMe.BusinessLogic.AccountLogic;
-//using NotMe.BusinessLogic.AccountLogic.Interfaces;
 
 namespace NotMe
 {
@@ -40,38 +32,17 @@ namespace NotMe
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //This is for Policy
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials().Build());
-            //});
-
-            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            //    .AddJwtBearer(options =>
-            //    {
-            //        options.TokenValidationParameters = new TokenValidationParameters
-            //        {
-            //            ValidateIssuer = true,
-            //            ValidateAudience = true,
-            //            ValidateLifetime = true,
-            //            ValidateIssuerSigningKey = true,
-            //            ValidIssuer = Configuration["Jwt:Issuer"],
-            //            ValidAudience = Configuration["Jwt:Issuer"],
-            //            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
-            //        };
-            //    });
-
-            //services.AddMvc(
-            //    options =>
-            //{
-            //    //**************Add General Policy *********************
-            //    //User need to be a Authorized system user to access pages except allowAnonymous annotation
-            //    var generalPolicy = new AuthorizationPolicyBuilder()
-            //                               .RequireAuthenticatedUser()
-            //                               .Build();
-            //    options.Filters.Add(new AuthorizeFilter(generalPolicy));
-            //    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
-            //});
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                    "TodosPolicy",
+                    builder =>
+                {
+                    builder.WithOrigins("*")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
 
             services.AddDbContext<AppDbContext>(opt => opt.UseNpgsql
                 (Configuration.GetConnectionString("NotMe")));
@@ -90,15 +61,14 @@ namespace NotMe
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            services.AddTransient<ITodoServices, TodoServices>();
+            services.AddTransient<ILogger, Logger<ToDo>>();
+
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "../NotMe.Client/build";
             });
-
-            //Logic
-            //services.AddScoped<IToDoLogic, ToDoLogic>();
-            //services.AddScoped<ILogger, Logger<ToDo>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

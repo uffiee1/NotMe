@@ -1,4 +1,4 @@
-import { ActionCreators } from '../actions/todoReducer';
+import { ActionCreators } from '../../actions/todosReducer';
 import * as axios from 'axios';
 
 const axiosInstance = axios.create({
@@ -19,7 +19,7 @@ export const DeleteTodo = async (dispatch, todo) => {
     try {
         // api call
         await axiosInstance.delete(`/${todo.id}`);
-        dispatch(ActionCreators.deleteNote(todo));
+        dispatch(ActionCreators.deleteTodo(todo));
     } catch {
         console.log('Error!');
     }
@@ -29,7 +29,7 @@ export const NewTodo = async (dispatch, todo) => {
     try {
         // api call
         const { data } = await axiosInstance.post('', todo)
-        dispatch(ActionCreators.newNote(data));
+        dispatch(ActionCreators.newTodo(data));
     } catch {
         console.log('Error!');
     }
@@ -39,7 +39,7 @@ export const EditTodo = async (dispatch, todo) => {
     try {
         // api call
         await axiosInstance.put('', todo);
-        dispatch(ActionCreators.editNote(todo));
+        dispatch(ActionCreators.editTodo(todo));
     } catch {
         console.log('Error!');
     }
